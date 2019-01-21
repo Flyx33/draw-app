@@ -8,6 +8,7 @@ canvas.height = window.innerHeight;
 window.addEventListener("resize", (e) => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    load(JSON.stringify(strokeHistory));
 });
 
 // Find Inputs
@@ -117,6 +118,7 @@ brushSlider.addEventListener("dblclick", (e) => {
 // Reset
 resetButton.addEventListener("click", (e) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    strokeHistory = [];
 });
 
 // Color Picker
