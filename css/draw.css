@@ -2,6 +2,161 @@ body{
     margin: 0;
     overflow: hidden;
 }
+
 canvas{
     background-color: rgba(0, 0, 0, 0.05)
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    position: fixed;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+input[type = "number"]{
+    margin: 0 10px;
+}
+
+i{
+    color: white;
+    margin-left: 4px;
+}
+
+.colorButton {
+  height: 20px;
+  width: 20px;
+  border-radius: 15px;
+  background-color: #ffc0cb;
+  cursor: pointer;
+  filter: drop-shadow(0 0 1.3rem rgba(0, 0, 0, 0.8));
+}
+
+.input{
+    margin: 0 7.5px;
+    display: inline;
+}
+
+.button{
+    cursor: pointer;
+    filter: drop-shadow(0 0 1.3rem rgba(0, 0, 0, 0.8));
+}
+
+.button:hover{
+    opacity: 0.7;
+}
+
+.button:active{
+    opacity: 0.9;
+}
+
+/* ============== */
+/* === Slider === */
+/* ============== */
+.slidecontainer {
+    display: inline;
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 8px; /* Specified height */
+    border-radius: 10px;
+    background: #b9b9b9; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    border-radius: 10px;
+    background: #ffffff; /* Orange background */
+    cursor: pointer; /* Cursor on hover */
+    filter: drop-shadow(0 0 1.3rem rgba(0, 0, 0, 0.8));
+}
+
+.slider::-moz-range-thumb {
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #ffffff; /* Orange background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* ==================== */
+/* === Color Picker === */
+/* ==================== */
+
+.colorButton {
+    position: relative;
+}
+
+/* colorButton text */
+.colorButton .colorPicker {
+    width: 120px;
+    background-color: #fff;
+    color: rgba(0, 0, 0, .8);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the colorButton text */
+    position: absolute;
+    display: block;
+    bottom: 200%;
+    left: 50%; 
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the colorButton */
+    z-index: 1;
+}
+
+.nonvisible{
+    visibility: hidden;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    margin: 0;
+}
+
+li{
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.colorSample{
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+#pink{
+    background-color: #ffc0cb;
+}
+
+#black{
+    background-color: #000000;
+}
+#blue{
+    background-color: #2469ff;
 }

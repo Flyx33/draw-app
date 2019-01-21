@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas</title>
+    <title>realtime-draw-app</title>
     <link rel="stylesheet" href="css/draw.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
     <canvas></canvas>
+    <div class="options">
+        <div class="input colorButton" id="colorButton">
+            <ul class="colorPicker nonvisible" id="colorPicker">
+                <div> 
+                    <li class="colorSample" id="black" style="background-color: #000000;"></li>
+                    <li class="colorSample" id="pink" style="background-color: #ffc0cb;"></li>
+                    <li class="colorSample" id="blue" style="background-color: #2469ff;"></li>
+                </div>
+                <div>
+                    <input type="color">
+                </div>
+            </ul>
+        </div>
+        <div class="slidercontainer input">
+            <input type="range" min="1" max="100" value="10" name="brush-size" class="slider" id="brushSlider">
+        </div>
+        <div class="input" id="resetButton"><i class="fas fa-trash button"></i></div>
+    </div>
     <script src="js/draw.js"></script>
 </body>
 </html>
