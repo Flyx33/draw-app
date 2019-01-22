@@ -29,7 +29,7 @@ strokeData = "";
 
 
 // Check If User Is Painting
-// -- Mouse Controls --
+// === Mouse Controls ===
 canvas.addEventListener("mousedown", (e)=> {
     paint = true;
     ctx.beginPath();
@@ -48,32 +48,47 @@ canvas.addEventListener("mouseout", (e) => {
     strokeHistory.push({strokeEnd: true});
 });
 
-// -- Touch Controls --
+// === Touch Controls ===
 canvas.addEventListener("touchstart", (e)=> {
-    e.preventDefault();
-    paint = true;
-    ctx.beginPath();
-    strokeHistory.push({strokeBegin: true});
-});
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mousedown", {
+        clientX : touch.clientX,
+        clientY : touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+}, false);
 
 canvas.addEventListener("touchend", (e)=> {
-    e.preventDefault();
-    paint = false;
-    ctx.closePath();
-    strokeHistory.push({strokeEnd: true});
-});
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mouseup", {
+        clientX : touch.clientX,
+        clientY : touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+}, false);
 
 canvas.addEventListener("touchcancel", (e) => {
-    e.preventDefault();
-    paint = false;
-    ctx.closePath();
-    strokeHistory.push({strokeEnd: true});
-});
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mouseout", {
+        clientX : touch.clientX,
+        clientY : touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+}, false);
+
+canvas.addEventListener("touchmove", (e) => {
+    var touch = e.touches[0];
+    var mouseEvent = new MouseEvent("mousemove", {
+        clientX : touch.clientX,
+        clientY : touch.clientY
+    });
+    canvas.dispatchEvent(mouseEvent);
+}, false);
+
+
 
 // Draw
 canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("touchmove", (e) => e.preventDefault());
-canvas.addEventListener("touchmove", draw);
 
 function draw(e){
     if(paint){
@@ -91,6 +106,24 @@ function draw(e){
         strokeHistory.push({x: e.clientX, y: e.clientY, color: brushColor, width: brushSlider.value});
     }
 }
+
+
+// Prevent Mobile Scrolling On Canvas
+// document.body.addEventListener("touchstart", (e) => {
+//     if(e.target == canvas){
+//         e.preventDefault();
+//     }
+// }, false);
+// document.body.addEventListener("touchend", (e) => {
+//     if(e.target == canvas){
+//         e.preventDefault();
+//     }
+// }, false);
+// document.body.addEventListener("touchmove", (e) => {
+//     if(e.target == canvas){
+//         e.preventDefault();
+//     }
+// }, false);
 
 function load(data){
     var h = JSON.parse(data);
