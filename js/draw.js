@@ -109,21 +109,21 @@ function draw(e){
 
 
 // Prevent Mobile Scrolling On Canvas
-// document.body.addEventListener("touchstart", (e) => {
-//     if(e.target == canvas){
-//         e.preventDefault();
-//     }
-// }, false);
-// document.body.addEventListener("touchend", (e) => {
-//     if(e.target == canvas){
-//         e.preventDefault();
-//     }
-// }, false);
-// document.body.addEventListener("touchmove", (e) => {
-//     if(e.target == canvas){
-//         e.preventDefault();
-//     }
-// }, false);
+document.body.addEventListener("touchstart", (e) => {
+    if(e.target == canvas){
+        e.preventDefault();
+    }
+}, false);
+document.body.addEventListener("touchend", (e) => {
+    if(e.target == canvas){
+        e.preventDefault();
+    }
+}, false);
+document.body.addEventListener("touchmove", (e) => {
+    if(e.target == canvas){
+        e.preventDefault();
+    }
+}, false);
 
 function load(data){
     var h = JSON.parse(data);
