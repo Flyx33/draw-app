@@ -32,17 +32,17 @@ document.body.addEventListener("touchstart", (e) => {
     if(e.target == canvas){
         e.preventDefault();
     }
-}, false);
+}, {passive: false});
 document.body.addEventListener("touchend", (e) => {
     if(e.target == canvas){
         e.preventDefault();
     }
-}, false);
+}, {passive: false});
 document.body.addEventListener("touchmove", (e) => {
     if(e.target == canvas){
         e.preventDefault();
     }
-}, false);
+}, {passive: false});
 
 // Check If User Is Painting
 // === Mouse Controls ===
@@ -50,19 +50,19 @@ canvas.addEventListener("mousedown", (e)=> {
     paint = true;
     ctx.beginPath();
     strokeHistory.push({strokeBegin: true});
-});
+}, {passive: false});
 
 canvas.addEventListener("mouseup", (e)=> {
     paint = false;
     ctx.closePath();
     strokeHistory.push({strokeEnd: true});
-});
+}, {passive: false});
 
 canvas.addEventListener("mouseout", (e) => {
     paint = false;
     ctx.closePath();
     strokeHistory.push({strokeEnd: true});
-});
+}, {passive: false});
 
 // === Touch Controls ===
 canvas.addEventListener("touchstart", (e)=> {
@@ -72,16 +72,12 @@ canvas.addEventListener("touchstart", (e)=> {
         clientY : touch.clientY
     });
     canvas.dispatchEvent(mouseEvent);
-}, false);
+}, {passive: false});
 
 canvas.addEventListener("touchend", (e)=> {
-    var touch = e.touches[0];
-    var mouseEvent = new MouseEvent("mouseup", {
-        clientX : touch.clientX,
-        clientY : touch.clientY
-    });
+    var mouseEvent = new MouseEvent("mouseup", {});
     canvas.dispatchEvent(mouseEvent);
-}, false);
+}, {passive: false});
 
 canvas.addEventListener("touchcancel", (e) => {
     var touch = e.touches[0];
@@ -90,7 +86,7 @@ canvas.addEventListener("touchcancel", (e) => {
         clientY : touch.clientY
     });
     canvas.dispatchEvent(mouseEvent);
-}, false);
+}, {passive: false});
 
 canvas.addEventListener("touchmove", (e) => {
     var touch = e.touches[0];
@@ -99,7 +95,7 @@ canvas.addEventListener("touchmove", (e) => {
         clientY : touch.clientY
     });
     canvas.dispatchEvent(mouseEvent);
-}, false);
+}, {passive: false});
 
 
 
