@@ -50,18 +50,21 @@ canvas.addEventListener("mouseout", (e) => {
 
 // -- Touch Controls --
 canvas.addEventListener("touchstart", (e)=> {
+    e.preventDefault();
     paint = true;
     ctx.beginPath();
     strokeHistory.push({strokeBegin: true});
 });
 
 canvas.addEventListener("touchend", (e)=> {
+    e.preventDefault();
     paint = false;
     ctx.closePath();
     strokeHistory.push({strokeEnd: true});
 });
 
 canvas.addEventListener("touchcancel", (e) => {
+    e.preventDefault();
     paint = false;
     ctx.closePath();
     strokeHistory.push({strokeEnd: true});
@@ -69,6 +72,7 @@ canvas.addEventListener("touchcancel", (e) => {
 
 // Draw
 canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("touchmove", (e) => e.preventDefault());
 canvas.addEventListener("touchmove", draw);
 
 function draw(e){
