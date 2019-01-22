@@ -9,6 +9,13 @@
 </head>
 <body>
     <canvas></canvas>
+    <div class="sidebar">
+        <ul>
+            <li class="sidebarItem"><i class="fas fa-bars button" id="sidebarButton"></i></li>
+            <li class="sidebarItem"><i class="fas fa-cog button" id="sidebarButton"></i></li>
+            <li class="sidebarItem"><i class="fas fa-info button" id="sidebarButton"></i></li>
+        </ul>
+    </div>
     <div class="options">
         <div class="input colorButton" id="colorButton">
             <ul class="colorPicker nonvisible" id="colorPicker">
@@ -22,7 +29,11 @@
         <div class="slidercontainer input">
             <input type="range" min="1" max="100" value="10" name="brush-size" class="slider" id="brushSlider">
         </div>
+        <div class="input" id="undoButton"><i class="fas fa-undo-alt button"></i></div>
         <div class="input" id="resetButton"><i class="fas fa-trash button"></i></div>
+        <div class="input" id="saveButton"><i class="fas fa-cloud-upload-alt button"></i></div>
+        <div class="input" id="loadButton"><i class="fas fa-file button"></i></div>
+        <a class="input" id="localSaveButton"><i class="fas fa-save button"></i></a>
     </div>
     <script src="js/draw.js"></script>
 </body>
