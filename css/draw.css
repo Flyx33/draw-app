@@ -74,7 +74,7 @@ i{
   border-radius: 15px;
   background-color: #ffc0cb;
   cursor: pointer;
-  filter: drop-shadow(0 0 1.3rem rgba(0, 0, 0, 0.8));
+  /* filter: drop-shadow(0 0 1.3rem rgba(0, 0, 0, 0.8)); */
 }
 
 .input{
