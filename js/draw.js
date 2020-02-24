@@ -16,6 +16,7 @@ var brushSlider = document.querySelector("#brushSlider"),
 undoButton = document.querySelector("#undoButton"),
 resetButton = document.querySelector("#resetButton"),
 saveButton = document.querySelector("#saveButton"),
+localSaveBtn = document.querySelector('#localSaveButton'),
 loadButton = document.querySelector("#loadButton"),
 colorButton = document.querySelector("#colorButton"),
 colorPicker = document.querySelector("#colorPicker");
@@ -208,7 +209,6 @@ colorSamples.forEach((e) => {
 });
 
 // Save Image Locally
-var localSaveBtn = document.querySelector('#localSaveButton');
 localSaveBtn.addEventListener("click", (e) => {
     localSaveBtn.href = canvas.toDataURL();
     localSaveBtn.download = "image.png";
